@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    scroll-behavior: smooth;
+}
+h1,h2,h3,h4,h5,h6,p,a,li {
+    color: #002f6c;
+}
+h1 {
+    font-size: 40px;
+}
+
+header {
+    height: 1500px;
+    width: 100%;
+    background-color: #002f6c;
+}
+.header2 {
+    /* background-color: white; */
+    margin-top: 30px;
+}
+#npy-blog {
+    display: flex;
+    height: fit-content;
+}
+#npy-blog aside {
+    min-width: 350px;
+    width: 350px;
+    position: relative;
+}
+#npy-blog aside #anchor {
+    list-style: none;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    overflow-y: auto;
+    max-height: 95vh;
+}
+#npy-blog aside #anchor::-webkit-scrollbar-thumb{
+    width: 5px;
+    border-radius: 5px;
+    background-color: #002f6c;
+    display: none;
+}
+#npy-blog aside #anchor::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, .1);
+    width: 10px;
+    display: none;
+}
+#npy-blog aside #anchor.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 355px;
+}
+#npy-blog aside #anchor.fix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 5vh;
+}
+#npy-blog aside ul li{
+    position: relative;
+    border-left: 3px solid grey;
+    opacity: .3;
+    padding: 7px 10px;
+    /* transition: border-image 300ms linear; */
+}
+
+#npy-blog aside ul li.active {
+    border-left:3px solid #ec602f;
+    opacity: 1;
+    scroll-snap-align: start;
+}
+
+#npy-blog aside ul li.active a{
+    color: #ec602f;
+}
+#npy-blog aside a {
+    color: black;
+    text-decoration: none; /* no underline */
+}
+
+#npy-blog main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 1204px;
+    flex: 1;
+    scroll-snap-type: y;
+}
+
+#npy-blog main h2, p, h3 {
+    width: 60%;
+    margin-inline: auto;
+}
+#npy-blog main p {
+    line-height: 35px;
+}
+
+#npy-blog main .img-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 70%;
+    height: 600px;
+    border-radius: 15px;
+    margin-inline: auto;
+}
+#npy-blog main .img-cont img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* aside ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+} */
+/* aside ul li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: #ec602f;
+    animation: fill-height 100ms linear;
+}
+@keyframes fill-height {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 100%;
+    }
+} */
