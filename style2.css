@@ -14,9 +14,9 @@ h1 {
 }
 
 header {
-    height: 1500px;
+    height: 500px;
     width: 100%;
-    background-color: #002f6c;
+    background-color: grey;
 }
 .header2 {
     /* background-color: white; */
@@ -25,60 +25,72 @@ header {
 #npy-blog {
     display: flex;
     height: fit-content;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #002f6c;
 }
 #npy-blog aside {
     min-width: 350px;
     width: 350px;
     position: relative;
 }
-#npy-blog aside #anchor {
+#npy-blog aside ul {
     list-style: none;
     height: fit-content;
     display: flex;
     flex-direction: column;
     padding-inline: 20px;
     overflow-y: auto;
+    height: fit-content;
     max-height: 95vh;
+    padding-top: 55px;
 }
-#npy-blog aside #anchor::-webkit-scrollbar-thumb{
+#npy-blog aside ul::-webkit-scrollbar-thumb{
     width: 5px;
     border-radius: 5px;
     background-color: #002f6c;
     display: none;
 }
-#npy-blog aside #anchor::-webkit-scrollbar {
+#npy-blog aside ul::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, .1);
-    width: 10px;
+    width: 5px;
     display: none;
 }
-#npy-blog aside #anchor.active {
+#npy-blog aside ul:hover::-webkit-scrollbar-thumb,
+#npy-blog aside ul:hover::-webkit-scrollbar {
+    display: block;
+}
+#npy-blog aside ul.active {
     position: fixed;
-    top: 0;
+    padding-top: 0;
+    top: 55px;
     left: 0;
     bottom: 0;
-    width: 355px;
+    width: 360px;
 }
-#npy-blog aside #anchor.fix-bottom {
+#npy-blog aside ul.fix-bottom {
     position: absolute;
     top: auto;
-    bottom: 5vh;
+    bottom: 0;
 }
 #npy-blog aside ul li{
     position: relative;
-    border-left: 3px solid grey;
+    border-left: 2px solid grey;
     opacity: .3;
     padding: 7px 10px;
+    font-size: 14px;
+    width: 90%;
+    align-self: center;
     /* transition: border-image 300ms linear; */
 }
 
 #npy-blog aside ul li.active {
-    border-left:3px solid #ec602f;
+    border-left:2px solid #002f6c;
     opacity: 1;
     scroll-snap-align: start;
 }
 
 #npy-blog aside ul li.active a{
-    color: #ec602f;
+    color: #002f6c;
 }
 #npy-blog aside a {
     color: black;
@@ -94,7 +106,9 @@ header {
     scroll-snap-type: y;
 }
 
-#npy-blog main h2, p, h3 {
+#npy-blog main > h2,
+#npy-blog main > p,
+#npy-blog main > h3 {
     width: 60%;
     margin-inline: auto;
 }
@@ -123,37 +137,106 @@ header {
 
 
 
-
-
-
-
-
-
-
-
-
-/* aside ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
+/* 
+.scrollbar-cont {
+    position: fixed;
     top: 0;
-    bottom: 0;
-} */
-/* aside ul li.active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background-color: #ec602f;
-    animation: fill-height 100ms linear;
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    z-index: 50;
 }
-@keyframes fill-height {
-    from {
-        height: 0px;
-    }
-    to {
-        height: 100%;
-    }
+#scrollbar {
+    position: absolute;
+    top: 100%;
+    height: 5px;
+    width: 100%;
+    background-color: #002f6c;
 } */
+
+
+
+
+
+
+/* div publicite */
+#npy-blog main .carousel-container {
+    position: relative;
+    width: 70%;
+    margin: 30px auto;
+}
+#npy-blog main .carousel-container .controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    transform: translateY(-110%);
+    display: flex;
+    gap: 20px;
+    font-size: 50px;
+}
+#npy-blog main .carousel-container .controls ion-icon {
+    background-color: #002f6c31;
+    color: white;
+    border-radius: 10px;
+    width: 50px;
+    cursor: pointer;
+}
+#npy-blog main .carousel-container .controls ion-icon:hover {
+    background-color: #014eb3;
+}
+#npy-blog main .carousel {
+    height: 350px;
+    display: flex;
+    overflow-x: hidden;
+    gap: 25px;
+    position: relative;
+    scroll-snap-type: x mandatory;
+}
+
+
+
+#npy-blog main .carousel .card{
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+    width: 450px;
+    height: 350px;
+    scroll-snap-align: start;
+    text-decoration: none;
+}
+#npy-blog main .carousel .card .card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 70%;
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#npy-blog main .carousel .card .card-img img{
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+#npy-blog main .carousel .card .card-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+    flex: 1;
+    width: 100%;
+    padding-inline: 20px;
+    overflow: hidden;
+}
+#npy-blog main .carousel .card .card-desc p{
+    font-size: 14px;
+    line-height: 20px;
+}
+#npy-blog main .carousel .card .card-desc h4{
+    font-size: 20px;
+    line-height: 25px;
+}
+
