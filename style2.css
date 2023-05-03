@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
-    scroll-behavior: smooth;
 }
 h1,h2,h3,h4,h5,h6,p,a,li {
     color: #002f6c;
@@ -26,7 +25,6 @@ header {
     display: flex;
     height: fit-content;
     padding-bottom: 100px;
-    border-bottom: 1px solid #002f6c;
 }
 #npy-blog aside {
     min-width: 350px;
@@ -42,18 +40,23 @@ header {
     overflow-y: auto;
     height: fit-content;
     max-height: 95vh;
-    padding-top: 55px;
+    margin-top: 55px;
 }
 #npy-blog aside ul::-webkit-scrollbar-thumb{
     width: 5px;
     border-radius: 5px;
-    background-color: #002f6c;
-    display: none;
+    background-color: transparent;
+    opacity: 0;
 }
 #npy-blog aside ul::-webkit-scrollbar {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: transparent;
     width: 5px;
-    display: none;
+}
+#npy-blog aside ul:hover::-webkit-scrollbar-thumb{
+    background-color: #002f6c;
+}
+#npy-blog aside ul:hover::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, .1);
 }
 #npy-blog aside ul:hover::-webkit-scrollbar-thumb,
 #npy-blog aside ul:hover::-webkit-scrollbar {
@@ -61,11 +64,11 @@ header {
 }
 #npy-blog aside ul.active {
     position: fixed;
-    padding-top: 0;
+    margin-top: 0;
     top: 55px;
     left: 0;
     bottom: 0;
-    width: 360px;
+    width: 350px;
 }
 #npy-blog aside ul.fix-bottom {
     position: absolute;
@@ -74,34 +77,45 @@ header {
 }
 #npy-blog aside ul li{
     position: relative;
-    border-left: 2px solid grey;
-    opacity: .3;
-    padding: 7px 10px;
+    border-left: 2px solid #002f6ca8;
+    opacity: .2;
+    padding: 10px 10px;
     font-size: 14px;
     width: 90%;
     align-self: center;
-    /* transition: border-image 300ms linear; */
 }
 
 #npy-blog aside ul li.active {
-    border-left:2px solid #002f6c;
+    border-left:2px solid #002f6ca8;
     opacity: 1;
     scroll-snap-align: start;
 }
 
 #npy-blog aside ul li.active a{
     color: #002f6c;
+    /* background-color: #002f6c09; */
+}
+#npy-blog aside ul li ion-icon{
+    margin-right: 10px;
+    font-size: 50px;
 }
 #npy-blog aside a {
-    color: black;
-    text-decoration: none; /* no underline */
+    text-decoration: none;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    height: 70px;
+    border: 2px solid #002f6ca8;
+    padding: 10px;
+    border-radius: 5px; */
 }
 
 #npy-blog main {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    width: 1204px;
+    width: 1240px;
     flex: 1;
     scroll-snap-type: y;
 }
@@ -116,7 +130,7 @@ header {
     line-height: 35px;
 }
 
-#npy-blog main .img-cont {
+#npy-blog main .article-img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,7 +140,7 @@ header {
     border-radius: 15px;
     margin-inline: auto;
 }
-#npy-blog main .img-cont img {
+#npy-blog main .article-img img {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
@@ -134,11 +148,161 @@ header {
 
 
 
+/* image container */
+#img-container {
+    display: flex;
+    width: 70%;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-inline: auto;
+}
+
+#img-container div {
+    width: calc(100% / 3 - 14px);
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 300ms linear;
+}
+#img-container div:hover ion-icon {
+    display: block;
+    opacity: .7;
+}
+#img-container div:hover img {
+    scale: 1.01;
+}
+#img-container ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    font-size: 72px;
+    --ionicon-stroke-width: 20px;
+    color: #002f6c;
+    pointer-events: none;
+    display: none;
+}
+
+#img-container div img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transition: scale 200ms linear;
+}
+
+#img-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000be;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    display: none;
+}
+#img-modal.active {
+    display: flex;
+}
+#img-modal .main-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    height: 75%;
+    width: 100%;
+}
+#img-modal .main-img img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+#img-modal .other-images {
+    width: 80%;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 10px;
+    overflow-x: hidden;
+    position: relative;
+}
+#img-modal .other-images  div {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    min-width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 3px solid transparent;
+
+}
+#img-modal .other-images  div.active {
+    border: 3px solid white;
+}
+#img-modal .other-images img{
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#img-modal .other-images .btnLeft{
+    position: fixed;
+    left: 0;
+    width: 50px;
+    min-height: 100%;
+    background-color: blue;
+}
+#img-modal .other-images .btnRight{
+    position: fixed;
+    right: 0;
+    width: 50px;
+    min-height: 100%;
+    background-color: blue;
+}
+
+#img-modal button {
+    all: unset;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+#modal-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #000000bd;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: none;
+    backdrop-filter: blur(3px)
+}
+#modal-overlay.active {
+    display: block;
+}
 
 
 
-/* 
-.scrollbar-cont {
+/* page scroll progress bar */
+/* .scrollbar-cont {
     position: fixed;
     top: 0;
     height: 50px;
@@ -152,20 +316,20 @@ header {
     height: 5px;
     width: 100%;
     background-color: #002f6c;
-} */
-
+}
+ */
 
 
 
 
 
 /* div publicite */
-#npy-blog main .carousel-container {
+#npy-blog main #carousel-container {
     position: relative;
     width: 70%;
     margin: 30px auto;
 }
-#npy-blog main .carousel-container .controls {
+#npy-blog main #carousel-container .controls {
     position: absolute;
     right: 0;
     top: 0;
@@ -175,14 +339,14 @@ header {
     gap: 20px;
     font-size: 50px;
 }
-#npy-blog main .carousel-container .controls ion-icon {
+#npy-blog main #carousel-container .controls ion-icon {
     background-color: #002f6c31;
     color: white;
     border-radius: 10px;
     width: 50px;
     cursor: pointer;
 }
-#npy-blog main .carousel-container .controls ion-icon:hover {
+#npy-blog main #carousel-container .controls ion-icon:hover {
     background-color: #014eb3;
 }
 #npy-blog main .carousel {
@@ -193,8 +357,6 @@ header {
     position: relative;
     scroll-snap-type: x mandatory;
 }
-
-
 
 #npy-blog main .carousel .card{
     display: flex;
@@ -216,6 +378,7 @@ header {
     border-radius: 15px;
     overflow: hidden;
 }
+
 #npy-blog main .carousel .card .card-img img{
     min-width: 100%;
     min-height: 100%;
@@ -238,5 +401,17 @@ header {
 #npy-blog main .carousel .card .card-desc h4{
     font-size: 20px;
     line-height: 25px;
+}
+
+/* video container */
+#npy-blog main #video-container {
+    width: 70%;
+    height: 720px;
+    overflow: hidden;
+    margin-inline: auto;
+}
+#npy-blog main #video-container iframe{
+    width: 100%;
+    height: 100%;
 }
 

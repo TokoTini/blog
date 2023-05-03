@@ -9,6 +9,9 @@ Array.prototype.forEach.call(headings, function(heading) {
     let li = document.createElement('li');
     let a = document.createElement('a');
     a.setAttribute('href', `#${heading.id}`);
+    if(heading.tagName == 'H2'){
+      a.style.fontWeight = "700";
+    }
     a.textContent = title.length > 65 ? title.slice(0,65)+ "..." : title;
     li.appendChild(a);
     ul.appendChild(li);
@@ -73,15 +76,13 @@ Array.prototype.forEach.call(headings, function(heading){
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
-
     // Get the target element to scroll to
     const target = document.querySelector(this.getAttribute('href'));
 
     // Scroll to the target element using ScrollToPlugin
     gsap.to(window, {
       scrollTo: { y: target},
-      duration: .2, // set the duration to 1 second
-      ease: "power1.out" // set the easing function to power2.out
+      duration: 1, // set the duration to 1 second
     });
   });
 });
@@ -174,3 +175,105 @@ paragraphs.forEach(p => {
     }
   }
 });
+
+
+
+
+
+// image modal 
+let imgContainer = document.getElementById('img-container');
+let imgDiv = imgContainer.querySelectorAll('div');
+let imgs = imgContainer.querySelectorAll('img');
+let modal = document.getElementById('img-modal');
+let closeModalBtn = document.querySelector('.close-modal');
+
+let otherImgsDiv = document.querySelector('.other-images');
+
+
+
+// add expand icons to each div
+imgDiv.forEach(div => {
+  let icon = document.createElement("ion-icon");
+  icon.setAttribute("name","expand-sharp");
+  div.append(icon);
+})
+
+
+
+// open image modal
+imgs.forEach(img => {
+// add every image in other-images container
+  let div = document.createElement('div');
+  let image = document.createElement('img');
+  image.setAttribute('src', img.src);
+  div.append(image);
+  otherImgsDiv.append(div);
+// add event listener to each image in #img-container
+  img.addEventListener('click', () => {
+// display image in modal
+    modal.querySelector('.main-img img').src = img.src;
+// find same image in other-images container and give active class to its parent div
+    let otherImages = document.querySelectorAll('.other-images div img');
+    otherImages.forEach(otherImg => {
+      let parent = otherImg.parentNode;
+      if(otherImg.src == img.src){
+        parent.classList.add('active');
+      }
+    })
+    // open modal while clicking on image
+    modal.classList.add('active');
+  })
+})
+
+
+
+let modalImages = document.querySelectorAll('.other-images div img');
+let otherDivs = document.querySelectorAll('.other-images div');
+
+
+modalImages.forEach(img => {
+  img.addEventListener('click', () => {
+    otherDivs.forEach(div => {
+      div.classList.remove('active');
+    })
+    modal.querySelector('.main-img img').src = img.src;
+    let parent = img.closest('div');
+    parent.classList.add('active');
+    console.log(otherImgsDiv.clientWidth)
+    console.log(otherImgsDiv.scrollWidth)
+  })
+})
+
+
+// close modal
+closeModalBtn.addEventListener('click', closeModal);
+
+function closeModal(){
+  modal.classList.remove('active');
+  otherDivs.forEach(div => {
+    div.classList.remove('active');
+  })
+}
+
+
+
+
+
+
+// image modal carousel
+
+let btnLeft = document.querySelector('.btnLeft');
+let btnRight = document.querySelector('.btnRight');
+
+btnLeft.addEventListener('click', (event) => {
+  otherImgsDiv.scrollBy({
+      left: -300,
+      behavior: 'smooth'
+  })
+})
+btnRight.addEventListener('click', (event) => {
+  otherImgsDiv.scrollBy({
+      left: 300,
+      behavior: 'smooth'
+  })
+})
