@@ -31,6 +31,7 @@ Array.prototype.forEach.call(headings, function(heading){
         start: "50% 50%",
         end: "top 50%",
         scrub: true, // add this line to enable user-initiated scrolling
+        // toggleClass: { className: "active", targets: li },
         onEnter: () => {
           li.classList.toggle('active');
           const liRect = li.getBoundingClientRect();
@@ -60,11 +61,11 @@ Array.prototype.forEach.call(headings, function(heading){
           }
         },
 
-      //  markers: {
-      //   startColor: 'red',
-      //   endColor: 'blue',
-      //   fontSize: '1.75rem',
-      // },
+       markers: {
+        startColor: 'red',
+        endColor: 'blue',
+        fontSize: '1.75rem',
+      },
       }
     })
   });
@@ -239,8 +240,6 @@ modalImages.forEach(img => {
     modal.querySelector('.main-img img').src = img.src;
     let parent = img.closest('div');
     parent.classList.add('active');
-    console.log(otherImgsDiv.clientWidth)
-    console.log(otherImgsDiv.scrollWidth)
   })
 })
 

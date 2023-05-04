@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
+    /* scroll-behavior: smooth; */
 }
 h1,h2,h3,h4,h5,h6,p,a,li {
     color: #002f6c;
@@ -98,6 +99,12 @@ header {
 #npy-blog aside ul li ion-icon{
     margin-right: 10px;
     font-size: 50px;
+}
+#npy-blog aside ul li:first-child{
+    border-left: 0;
+    text-align: center;
+    font-size: 18px;
+    opacity: 1;
 }
 #npy-blog aside a {
     text-decoration: none;
