@@ -13,15 +13,6 @@ h1 {
     font-size: 40px;
 }
 
-header {
-    height: 500px;
-    width: 100%;
-    background-color: grey;
-}
-.header2 {
-    /* background-color: white; */
-    margin-top: 30px;
-}
 #npy-blog {
     display: flex;
     height: fit-content;
@@ -39,7 +30,6 @@ header {
     flex-direction: column;
     padding-inline: 20px;
     overflow-y: auto;
-    height: fit-content;
     max-height: 95vh;
     margin-top: 55px;
 }
@@ -80,26 +70,18 @@ header {
     position: relative;
     border-left: 2px solid #002f6ca8;
     opacity: .2;
-    padding: 10px 10px;
+    padding: 10px;
     font-size: 14px;
     width: 90%;
     align-self: center;
+    color: #002f6c;
 }
 
 #npy-blog aside ul li.active {
-    border-left:2px solid #002f6ca8;
     opacity: 1;
     scroll-snap-align: start;
 }
 
-#npy-blog aside ul li.active a{
-    color: #002f6c;
-    /* background-color: #002f6c09; */
-}
-#npy-blog aside ul li ion-icon{
-    margin-right: 10px;
-    font-size: 50px;
-}
 #npy-blog aside ul li:first-child{
     border-left: 0;
     text-align: center;
@@ -108,15 +90,21 @@ header {
 }
 #npy-blog aside a {
     text-decoration: none;
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%; 
-    height: 70px;
-    border: 2px solid #002f6ca8;
-    padding: 10px;
-    border-radius: 5px; */
 }
+
+
+/* 
+main container
+main container
+main container
+main container
+main container
+main container
+main container
+main container
+main container
+*/
+
 
 #npy-blog main {
     display: flex;
@@ -126,45 +114,45 @@ header {
     flex: 1;
     scroll-snap-type: y;
 }
-
-#npy-blog main > h2,
-#npy-blog main > p,
-#npy-blog main > h3 {
+#npy-blog main > * {
     width: 60%;
     margin-inline: auto;
 }
-#npy-blog main p {
-    line-height: 35px;
-}
-
 #npy-blog main .article-img {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     width: 70%;
-    height: 600px;
-    border-radius: 15px;
-    margin-inline: auto;
+    height: 550px;
+    border-radius: 10px;
 }
 #npy-blog main .article-img img {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
 }
-
-
-
-/* image container */
-#img-container {
-    display: flex;
-    width: 70%;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-inline: auto;
+#npy-blog main ul li {
+    margin-left: 20px;
 }
 
-#img-container div {
+/* 
+gallery 
+gallery
+gallery
+gallery
+gallery
+gallery
+gallery
+*/
+
+#gallery-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#gallery-container div {
     width: calc(100% / 3 - 14px);
     height: 200px;
     border-radius: 10px;
@@ -176,14 +164,14 @@ header {
     cursor: pointer;
     transition: 300ms linear;
 }
-#img-container div:hover ion-icon {
+#gallery-container div:hover ion-icon {
     display: block;
     opacity: .7;
 }
-#img-container div:hover img {
+#gallery-container div:hover img {
     scale: 1.01;
 }
-#img-container ion-icon {
+#gallery-container ion-icon {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -192,23 +180,36 @@ header {
     transform: translate(-50%, -50%);
     font-size: 72px;
     --ionicon-stroke-width: 20px;
-    color: #002f6c;
+    color: white;
     pointer-events: none;
     display: none;
 }
 
-#img-container div img {
+#gallery-container div img {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
     transition: scale 200ms linear;
 }
 
+
+/* 
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+ */
+
 #img-modal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 30px;
     width: 100%;
     height: 100%;
@@ -221,6 +222,7 @@ header {
     right: 0;
     z-index: 50;
     display: none;
+    user-select: none;
 }
 #img-modal.active {
     display: flex;
@@ -229,26 +231,32 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
     height: 75%;
-    width: 100%;
+    width: 75%;
+    overflow: hidden;
+    /* margin-top: 20px; */
 }
 #img-modal .main-img img{
-    max-width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
 }
 #img-modal .other-images {
-    width: 80%;
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-    padding-bottom: 10px;
-    overflow-x: hidden;
+    width: fit-content;
+    max-width: 75%;
+    /* flex: 1; */
+    height: fit-content;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#img-modal .other-images  div {
+#img-modal .other-images .modal-img-cont {
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+}
+#img-modal .other-images .modal-img-cont div {
     display: flex;
     align-items: center;
     width: 150px;
@@ -257,58 +265,59 @@ header {
     border-radius: 5px;
     overflow: hidden;
     border: 3px solid transparent;
-
 }
-#img-modal .other-images  div.active {
+#img-modal .other-images .modal-img-cont div.active {
     border: 3px solid white;
 }
-#img-modal .other-images img{
+#img-modal .other-images .modal-img-cont div img{
     min-width: 100%;
-    height: 100%;
+    min-height: 100%;
     object-fit: cover;
 }
-#img-modal .other-images .btnLeft{
-    position: fixed;
-    left: 0;
+#img-modal .other-images span {
+    position: absolute;
     width: 50px;
     min-height: 100%;
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#img-modal .other-images .btnLeft{
+    right: 100%;
 }
 #img-modal .other-images .btnRight{
-    position: fixed;
-    right: 0;
-    width: 50px;
-    min-height: 100%;
-    background-color: blue;
+    left: 100%;
 }
 
-#img-modal button {
+#img-modal .other-images span ion-icon {
+    font-size: 64px;
+    color: white;
+}
+
+
+#img-modal .close-modal {
     all: unset;
-    width: 50px;
-    height: 50px;
-    background-color: red;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(50%, -50%);
+    cursor: pointer;
 }
-#modal-overlay {
-    width: 100%;
-    height: 100%;
-    background-color: #000000bd;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    display: none;
-    backdrop-filter: blur(3px)
-}
-#modal-overlay.active {
-    display: block;
+#img-modal .close-modal ion-icon {
+    font-size: 62px;
+    color: white;
 }
 
 
 
-/* page scroll progress bar */
+/* 
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+ */
 /* .scrollbar-cont {
     position: fixed;
     top: 0;
@@ -323,17 +332,25 @@ header {
     height: 5px;
     width: 100%;
     background-color: #002f6c;
-}
- */
+} */
 
 
 
 
 
-/* div publicite */
+
+/* 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+*/
 #npy-blog main #carousel-container {
     position: relative;
-    width: 70%;
+    /* width: 70%; */
     margin: 30px auto;
 }
 #npy-blog main #carousel-container .controls {
@@ -412,13 +429,95 @@ header {
 
 /* video container */
 #npy-blog main #video-container {
-    width: 70%;
+    /* width: 60%; */
     height: 720px;
     overflow: hidden;
-    margin-inline: auto;
 }
 #npy-blog main #video-container iframe{
     width: 100%;
     height: 100%;
+}
+
+@media only screen and (max-width: 1620px) { 
+    #npy-blog aside {
+        display: none;
+    }
+    #npy-blog main {
+        width: 100%;
+    }
+    #npy-blog main > * {
+        width: 70%;
+    }
+    #npy-blog main #video-container {
+        height: 50vw;
+    }
+    #npy-blog main .article-img {
+        height: 35vw;
+        width: 70%;
+    }
+    #npy-blog main #gallery-container div {
+        width: calc(100% / 3 - 14px);
+        height: 20vw;
+    }
+    #npy-blog main #gallery-container div ion-icon{
+        font-size: 42px;
+    }
+    #img-modal .main-img {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    #img-modal .other-images .modal-img-cont div{
+        width: 75px;
+        min-width: 75px;
+        height: 75px;
+    }
+    #img-modal .other-images {
+        max-height: 100px;
+        flex: none;
+    }
+    #img-modal .main-img {
+        width: 100%;
+        height: 100%;
+    }
+    #img-modal .main-img img{
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) { 
+    #npy-blog main > * {
+        width: 85%;
+    }
+    #npy-blog main .article-img {
+        height: 50vw;
+        width: 85%;
+    }
+    #npy-blog main #gallery-container div {
+        width: calc(100% / 2 - 10px);
+        height: 35vw;
+    }
+    #npy-blog main #gallery-container div ion-icon{
+        font-size: 42px;
+    }
+    #npy-blog main .carousel {
+        overflow-x: scroll;
+    }
+    #npy-blog main .carousel .card{
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        width: 200px;
+        height: 100%;
+        scroll-snap-align: start;
+        text-decoration: none;
+    }
+    #npy-blog main .carousel .card .card-desc {
+        padding-inline: 5px;
+    }
+    #img-modal .main-img img{
+        min-width: 100%;
+        min-height: auto;
+    }
 }
 

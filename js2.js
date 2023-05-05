@@ -61,11 +61,11 @@ Array.prototype.forEach.call(headings, function(heading){
           }
         },
 
-       markers: {
-        startColor: 'red',
-        endColor: 'blue',
-        fontSize: '1.75rem',
-      },
+      //  markers: {
+      //   startColor: 'red',
+      //   endColor: 'blue',
+      //   fontSize: '1.75rem',
+      // },
       }
     })
   });
@@ -104,7 +104,11 @@ gsap.to('#npy-blog',{
         onLeaveBack: () => {
             anchor.classList.remove('active')
         },
-
+      // markers: {
+      //   startColor: 'red',
+      //   endColor: 'blue',
+      //   fontSize: '1.75rem',
+      // },
     }
 })
 
@@ -182,13 +186,12 @@ paragraphs.forEach(p => {
 
 
 // image modal 
-let imgContainer = document.getElementById('img-container');
+let imgContainer = document.getElementById('gallery-container');
 let imgDiv = imgContainer.querySelectorAll('div');
 let imgs = imgContainer.querySelectorAll('img');
 let modal = document.getElementById('img-modal');
 let closeModalBtn = document.querySelector('.close-modal');
-
-let otherImgsDiv = document.querySelector('.other-images');
+let otherImgsDiv = document.querySelector('.modal-img-cont');
 
 
 
@@ -200,48 +203,113 @@ imgDiv.forEach(div => {
 })
 
 
+modal.addEventListener('click', (e) => {
+  modal.classList.remove('active');
+})
 
-// open image modal
-imgs.forEach(img => {
-// add every image in other-images container
-  let div = document.createElement('div');
-  let image = document.createElement('img');
-  image.setAttribute('src', img.src);
-  div.append(image);
-  otherImgsDiv.append(div);
-// add event listener to each image in #img-container
-  img.addEventListener('click', () => {
-// display image in modal
-    modal.querySelector('.main-img img').src = img.src;
-// find same image in other-images container and give active class to its parent div
-    let otherImages = document.querySelectorAll('.other-images div img');
-    otherImages.forEach(otherImg => {
-      let parent = otherImg.parentNode;
-      if(otherImg.src == img.src){
-        parent.classList.add('active');
-      }
-    })
-    // open modal while clicking on image
-    modal.classList.add('active');
-  })
+
+let other = document.querySelector('.other-images');
+let modalImage = document.querySelector('.main-img img')
+
+modalImage.addEventListener('click', (e) => {
+  e.stopPropagation();
+})
+
+other.addEventListener('click', (e) => {
+  e.stopPropagation();
 })
 
 
 
-let modalImages = document.querySelectorAll('.other-images div img');
-let otherDivs = document.querySelectorAll('.other-images div');
+  imgs.forEach((img, index) => {
+    // add every image in other-images container
+    let div = document.createElement('div');
+    let image = document.createElement('img');
+    image.setAttribute('src', img.src);
+    div.append(image);
+    otherImgsDiv.append(div);
+    // add event listener to each image in #gallery-container
+    img.addEventListener('click', () => {
+      // update current image index to match the clicked image index
+      currentImageIndex = index;
+      // display image in modal
+      modal.querySelector('.main-img img').src = img.src;
+      // find same image in other-images container and give active class to its parent div
+      let otherImages = document.querySelectorAll('.modal-img-cont div img');
+      otherImages.forEach((otherImg, otherIndex) => {
+        otherImg.addEventListener('click', () => {
+          currentImageIndex = otherIndex;
+          modal.querySelector('.main-img img').src = otherImg.src;
+          displayCurrentImage();
+        });
+        let parent = otherImg.parentNode;
+        if (otherImg.src == img.src) {
+          parent.classList.add('active');
+        } else {
+          parent.classList.remove('active');
+        }
+      });
+      // open modal while clicking on image
+      modal.classList.add('active');
+    });
+  });
 
+let modalImages = document.querySelectorAll('.modal-img-cont div img');
+let otherDivs = document.querySelectorAll('.modal-img-cont div');
 
-modalImages.forEach(img => {
-  img.addEventListener('click', () => {
-    otherDivs.forEach(div => {
-      div.classList.remove('active');
-    })
-    modal.querySelector('.main-img img').src = img.src;
-    let parent = img.closest('div');
-    parent.classList.add('active');
-  })
-})
+// function to display the current image
+function displayCurrentImage() {
+  otherDivs.forEach(div => {
+    div.classList.remove('active');
+  });
+  const currentImage = modalImages[currentImageIndex];
+  modal.querySelector('.main-img img').src = currentImage.src;
+  let parent = currentImage.closest('div');
+  parent.classList.add('active');
+  let contWidth = otherImgsDiv.offsetWidth
+  gsap.to('.modal-img-cont', {
+    scrollTo: { x: parent, offsetX: contWidth/2 - 75, autoKill: true },// set the duration to 1 second
+    duration: 1,
+  });
+}
+
+// add event listener to each image in other-images container
+// let otherImages = document.querySelectorAll('.modal-img-cont div img');
+modalImages.forEach((otherImg, index) => {
+  otherImg.addEventListener('click', () => {
+    // update current image index to match the clicked image index
+    currentImageIndex = index;
+    // display image in modal
+    modal.querySelector('.main-img img').src = otherImg.src;
+    // remove active class from other-images container
+    modalImages.forEach(img => {
+      img.parentNode.classList.remove('active');
+    });
+    // add active class to clicked image's parent div
+    otherImg.parentNode.classList.add('active');
+  });
+});
+
+let btnLeft = document.querySelector('.btnLeft');
+let btnRight = document.querySelector('.btnRight');
+
+// add event listeners to the buttons
+btnRight.addEventListener('click', () => {
+  currentImageIndex++;
+  if (currentImageIndex >= modalImages.length) {
+    currentImageIndex = 0;
+  }
+  displayCurrentImage();
+});
+
+btnLeft.addEventListener('click', () => {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = modalImages.length - 1;
+  }
+  displayCurrentImage();
+});
+
 
 
 // close modal
@@ -255,24 +323,4 @@ function closeModal(){
 }
 
 
-
-
-
-
 // image modal carousel
-
-let btnLeft = document.querySelector('.btnLeft');
-let btnRight = document.querySelector('.btnRight');
-
-btnLeft.addEventListener('click', (event) => {
-  otherImgsDiv.scrollBy({
-      left: -300,
-      behavior: 'smooth'
-  })
-})
-btnRight.addEventListener('click', (event) => {
-  otherImgsDiv.scrollBy({
-      left: 300,
-      behavior: 'smooth'
-  })
-})
