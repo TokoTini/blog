@@ -1,0 +1,779 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    /* scroll-behavior: smooth; */
+}
+#npy-blog h1,h2,h3,h4,h5,h6,p,a,li {
+    color: #002f6c;
+}
+h1 {
+    font-size: 40px;
+}
+a {
+    text-decoration: none;
+}
+
+body.disabled {
+    overflow: hidden;
+}
+
+#npy-blog {
+    display: flex;
+    height: fit-content;
+    padding-bottom: 100px;
+}
+#npy-blog aside {
+    min-width: 340px;
+    width: 340px;
+    position: relative;
+}
+#npy-blog main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 1100px;
+    scroll-snap-type: y;
+    margin: auto;
+}
+#npy-blog aside ul {
+    list-style: none;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20px;
+    overflow-y: auto;
+    max-height: 95vh;
+    margin-top: 55px;
+}
+#npy-blog aside ul.active {
+    position: fixed;
+    margin-top: 0;
+    top: 55px;
+    left: 0;
+    bottom: 0;
+    width: 340px;
+}
+#npy-blog aside ul::-webkit-scrollbar-thumb{
+    width: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    opacity: 0;
+}
+#npy-blog aside ul::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+#npy-blog aside ul:hover::-webkit-scrollbar-thumb{
+    background-color: #002f6c;
+}
+#npy-blog aside ul:hover::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, .1);
+}
+#npy-blog aside ul:hover::-webkit-scrollbar-thumb,
+#npy-blog aside ul:hover::-webkit-scrollbar {
+    display: block;
+}
+#npy-blog aside ul.fix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+}
+#npy-blog aside ul li{
+    position: relative;
+    border-left: 2px solid #002f6ca8;
+    opacity: .2;
+    padding: 10px;
+    font-size: 14px;
+    width: 90%;
+    align-self: center;
+    color: #002f6c;
+}
+
+#npy-blog aside ul li.active {
+    opacity: 1;
+    scroll-snap-align: start;
+}
+
+#npy-blog aside ul li:first-child{
+    border-left: 0;
+    text-align: center;
+    font-size: 18px;
+    opacity: 1;
+}
+#npy-blog aside a {
+    text-decoration: none;
+}
+
+
+/* 
+main container
+main container
+main container
+main container
+main container
+main container
+main container
+main container
+main container
+*/
+
+
+#npy-blog main > * {
+    width: 85%;
+    margin-inline: auto;
+}
+#npy-blog main .article-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 95%;
+    height: 550px;
+    border-radius: 10px;
+}
+#npy-blog main .article-img img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+#npy-blog main ul li {
+    margin-left: 20px;
+}
+
+/* 
+gallery 
+gallery
+gallery
+gallery
+gallery
+gallery
+gallery
+*/
+
+#gallery-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#gallery-container div {
+    width: calc(100% / 3 - 14px);
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 300ms linear;
+}
+#gallery-container div:hover ion-icon {
+    display: block;
+    opacity: .7;
+}
+#gallery-container div:hover img {
+    scale: 1.01;
+}
+#gallery-container ion-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    font-size: 72px;
+    --ionicon-stroke-width: 20px;
+    color: white;
+    pointer-events: none;
+    display: none;
+}
+
+#gallery-container div img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transition: scale 200ms linear;
+}
+
+
+
+
+/* 
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+page scroll progress bar
+ */
+.scrollbar-cont {
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: white;
+    z-index: 50;
+}
+#scrollbar {
+    position: absolute;
+    top: 100%;
+    height: 5px;
+    width: 100%;
+    background-color: #002f6c;
+}
+
+
+
+
+
+
+/* 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+div publicite 
+*/
+#npy-blog main #publicite-container {
+    position: relative;
+    /* width: 70%; */
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#npy-blog main #publicite-container .controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    transform: translateY(-110%);
+    display: flex;
+    gap: 20px;
+    font-size: 50px;
+}
+#npy-blog main #publicite-container .btn-publicite{
+    all: unset;
+    cursor: pointer;
+    background-color: #0c5fcc;
+    padding: 15px;
+    border-radius: 10px;
+    align-self: center;
+}
+#npy-blog main #publicite-container .btn-publicite a{
+    color: white;
+}
+#npy-blog main #publicite-container .controls ion-icon {
+    background-color: #002f6c31;
+    color: white;
+    border-radius: 10px;
+    width: 50px;
+    cursor: pointer;
+}
+#npy-blog main #publicite-container .controls ion-icon:hover {
+    background-color: #014eb3;
+}
+#npy-blog main .carousel {
+    height: 350px;
+    display: flex;
+    overflow-x: hidden;
+    gap: 25px;
+    position: relative;
+    scroll-snap-type: x mandatory;
+}
+
+#npy-blog main .carousel .card{
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+    width: 450px;
+    height: 350px;
+    scroll-snap-align: start;
+}
+#npy-blog main .carousel .card .card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 70%;
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#npy-blog main .carousel .card .card-img img{
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+#npy-blog main .carousel .card .card-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+    flex: 1;
+    width: 100%;
+    padding-inline: 20px;
+    overflow: hidden;
+}
+#npy-blog main .carousel .card .card-desc p{
+    font-size: 14px;
+    line-height: 20px;
+}
+#npy-blog main .carousel .card .card-desc h4{
+    font-size: 20px;
+    line-height: 25px;
+}
+
+/* video container */
+#npy-blog main #video-container {
+    /* width: 60%; */
+    height: 720px;
+    overflow: hidden;
+}
+#npy-blog main #video-container iframe{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* framed text  */
+#npy-blog main .framed {
+    border: 3px solid skyblue;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+/* 
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+gallery modal
+ */
+
+ #img-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000be;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    display: none;
+    user-select: none;
+}
+#img-modal.active {
+    display: flex;
+}
+#img-modal .main-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+    width: 75%;
+    overflow: hidden;
+    /* margin-top: 20px; */
+}
+#img-modal .main-img img{
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+#img-modal .other-images {
+    width: fit-content;
+    max-width: 75%;
+    /* flex: 1; */
+    height: fit-content;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#img-modal .other-images .modal-img-cont {
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+}
+#img-modal .other-images .modal-img-cont div {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    min-width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+#img-modal .other-images .modal-img-cont div.active {
+    border: 3px solid white;
+}
+#img-modal .other-images .modal-img-cont div img{
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+#img-modal .other-images span {
+    position: absolute;
+    width: 50px;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#img-modal .other-images .btnLeft{
+    right: 100%;
+}
+#img-modal .other-images .btnRight{
+    left: 100%;
+}
+
+#img-modal .other-images span ion-icon {
+    font-size: 64px;
+    color: white;
+}
+
+
+#img-modal .close-modal {
+    all: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+#img-modal .close-modal ion-icon {
+    font-size: 62px;
+    color: white;
+}
+
+/* 
+popup container 
+popup container 
+popup container 
+popup container
+popup container 
+popup container 
+popup container 
+popup container 
+popup container 
+*/
+#npy-blog #popup-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 1000;
+    display: none;
+}
+
+#npy-blog #popup-container.active {
+    display: block;
+}
+#npy-blog #popup-container .popup-content {
+    width: 80%;
+    height: 100%;
+    background-color: rgb(238, 238, 238);
+    margin-inline: auto;
+}
+#npy-blog #popup-container .close-popup {
+    all: unset;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* 
+share article
+share article
+share article
+share article
+share article
+share article
+*/
+#share-article {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: fit-content;
+    background-color: #3b4d5a; /* Fallback color */
+    background-image: linear-gradient(to right, #0d2e58 0%, #537895 100%);
+    border-radius: 10px;
+    display: none;
+}
+#share-article.active {
+    display: block;
+}
+#share-article *{
+color: white;
+}
+#share-article .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+    height: 50px;
+    font-size: 20px;
+}
+#share-article .head .closeShare{
+    font-size: 32px;
+    cursor: pointer;
+}
+
+#share-article .body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+}
+#share-article .body .icons,
+#share-article .body .copy{
+    height: calc(50% - 25px);
+    display: flex;
+    align-items: center;
+}
+#share-article .body .icons ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* gap: 20px; */
+}
+
+#share-article .body .icons ul li {
+    font-size: 35px;
+}
+#share-article .body .icons .awsm{
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    cursor: pointer;
+    transition: 200ms ease-out;
+}
+#share-article .body .icons .awsm:hover{
+    box-shadow: 0px 0px rgba(0, 0, 0, .1);
+    transform: translate(3px, 3px);
+    filter: brightness(1.3);
+}
+
+#share-article .body .icons .fa-facebook-f {
+    background-color: #4267B2;
+    box-shadow: 5px 5px rgba(66, 103, 178, 0.5);
+}
+#share-article .body .icons .fa-facebook-messenger {
+    background-color: #1877f2;
+    box-shadow: 5px 5px rgba(24, 119, 242, 0.5);
+}
+#share-article .body .icons .fa-whatsapp {
+    background-color: #25D366;
+    box-shadow: 5px 5px rgba(37, 211, 102, 0.5);
+}
+#share-article .body .icons .fa-linkedin-in {
+    background-color: #0077b5;
+    box-shadow: 5px 5px rgba(0, 119, 181, 0.5);
+}
+#share-article .body .icons .fa-twitter {
+    background-color: #1da1f2;
+    box-shadow: 5px 5px rgba(29, 161, 242, 0.5);
+}
+#share-article .body .icons .fa-envelope {
+    background-color: #c75000;
+    box-shadow: 5px 5px rgba(199, 80, 0, 0.5);
+}
+
+#share-article .body .copy{
+    width: 100%;
+    display: flex;
+}
+#share-article .body .copy input{
+    all: unset;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex: 1;
+    height: 50px;
+    padding: 0 5px;
+    background-color: rgba(255, 255, 255, .5);
+    /* color: #002f6c; */
+
+}
+#share-article .body .copy button{
+    all: unset;
+    background-color: #0c5fcc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 50px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1460px) { 
+    #npy-blog aside {
+        /* display: none; */
+        width: 250px;
+        min-width: 250px;
+    }
+    #npy-blog aside ul.active{
+        width: 250px;
+    }
+    #npy-blog main {
+        width: 900px;
+    }
+    #npy-blog main > * {
+        width: 85%;
+    }
+    #npy-blog main #video-container {
+        height: 50vw;
+    }
+    #npy-blog main .article-img {
+        height: 35vw;
+        width: 95%;
+    }
+    #npy-blog main #gallery-container div {
+        width: calc(100% / 3 - 14px);
+        height: 15vw;
+    }
+    #npy-blog main #gallery-container div ion-icon{
+        font-size: 42px;
+    }
+    #img-modal .main-img {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    #img-modal .other-images .modal-img-cont div{
+        width: 75px;
+        min-width: 75px;
+        height: 75px;
+    }
+    #img-modal .other-images {
+        max-height: 100px;
+        flex: none;
+    }
+    #img-modal .main-img {
+        width: 100%;
+        height: 100%;
+    }
+    #img-modal .main-img img{
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) { 
+    #npy-blog main {
+        width: 700px;
+    }
+    #npy-blog main > * {
+        width: 100%;
+    }
+    #npy-blog main .article-img {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 992px) { 
+    #npy-blog aside {
+        display: none;
+    }
+    #npy-blog main {
+        width: 100%;
+    }
+    #npy-blog main > *,
+    #npy-blog main .article-img {
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 768px) { 
+    #npy-blog aside {
+        display: none;
+    }
+    #npy-blog main > * {
+        width: 85%;
+    }
+    #npy-blog main .article-img {
+        height: 50vw;
+        width: 85%;
+    }
+    #npy-blog main #gallery-container div {
+        width: calc(100% / 2 - 10px);
+        height: 35vw;
+    }
+    #npy-blog main #gallery-container div ion-icon{
+        font-size: 42px;
+    }
+    #npy-blog main .carousel {
+        overflow-x: scroll;
+    }
+    #npy-blog main .carousel .card{
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        width: 300px;
+        height: 100%;
+        scroll-snap-align: start;
+        text-decoration: none;
+    }
+    #npy-blog main .carousel .card .card-desc {
+        padding-inline: 5px;
+    }
+    #img-modal .main-img img{
+        min-width: 100%;
+        min-height: auto;
+    }
+    #img-modal .other-images {
+        margin-bottom: 15px;
+    }
+}
+
+.test {
+    margin-top: 100px;
+    height: 800px;
+}
+
+
+
+
+
+/* 
+768
+992
+1200
+1440 
+*/
+
+
+
+
+

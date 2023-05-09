@@ -203,9 +203,7 @@ imgDiv.forEach(div => {
 })
 
 
-modal.addEventListener('click', (e) => {
-  modal.classList.remove('active');
-})
+modal.addEventListener('click', closeModal)
 
 
 let other = document.querySelector('.other-images');
@@ -239,8 +237,7 @@ other.addEventListener('click', (e) => {
       otherImages.forEach((otherImg, otherIndex) => {
         otherImg.addEventListener('click', () => {
           currentImageIndex = otherIndex;
-          modal.querySelector('.main-img img').src = otherImg.src;
-          displayCurrentImage();
+          scrollIntoView();
         });
         let parent = otherImg.parentNode;
         if (otherImg.src == img.src) {
@@ -251,6 +248,7 @@ other.addEventListener('click', (e) => {
       });
       // open modal while clicking on image
       modal.classList.add('active');
+      document.body.classList.add('disabled');
     });
   });
 
@@ -258,7 +256,7 @@ let modalImages = document.querySelectorAll('.modal-img-cont div img');
 let otherDivs = document.querySelectorAll('.modal-img-cont div');
 
 // function to display the current image
-function displayCurrentImage() {
+function scrollIntoView() {
   otherDivs.forEach(div => {
     div.classList.remove('active');
   });
@@ -266,9 +264,9 @@ function displayCurrentImage() {
   modal.querySelector('.main-img img').src = currentImage.src;
   let parent = currentImage.closest('div');
   parent.classList.add('active');
-  let contWidth = otherImgsDiv.offsetWidth
+  let contWidth = otherImgsDiv.offsetWidth;
   gsap.to('.modal-img-cont', {
-    scrollTo: { x: parent, offsetX: contWidth/2 - 75, autoKill: true },// set the duration to 1 second
+    scrollTo: { x: parent, offsetX: contWidth/2 - 75 },// set the duration to 1 second
     duration: 1,
   });
 }
@@ -299,7 +297,7 @@ btnRight.addEventListener('click', () => {
   if (currentImageIndex >= modalImages.length) {
     currentImageIndex = 0;
   }
-  displayCurrentImage();
+  scrollIntoView();
 });
 
 btnLeft.addEventListener('click', () => {
@@ -307,7 +305,7 @@ btnLeft.addEventListener('click', () => {
   if (currentImageIndex < 0) {
     currentImageIndex = modalImages.length - 1;
   }
-  displayCurrentImage();
+  scrollIntoView();
 });
 
 
@@ -316,11 +314,71 @@ btnLeft.addEventListener('click', () => {
 closeModalBtn.addEventListener('click', closeModal);
 
 function closeModal(){
+  document.body.classList.remove('disabled');
   modal.classList.remove('active');
+
   otherDivs.forEach(div => {
     div.classList.remove('active');
   })
 }
 
 
-// image modal carousel
+// popup container
+
+let popUp = document.getElementById('popup-container');
+
+
+gsap.to('#npy-blog',{
+  scrollTrigger: {
+      trigger: '#npy-blog',
+      start: "50% 50%",
+      // end: "55% 50%",
+      scrub: true,
+      onEnter: () => {
+          popUp.classList.add('active')
+      },
+      onLeaveBack: () => {
+          popUp.classList.remove('active')
+      },
+    // markers: {
+    //   startColor: 'red',
+    //   endColor: 'blue',
+    //   fontSize: '1.75rem',
+    // },
+  }
+})
+
+
+let closePopUp = document.querySelector('.close-popup');
+closePopUp.addEventListener('click', () => {
+  popUp.classList.remove('active')
+})
+
+
+
+// share article
+
+let shareLink = document.querySelector('.copy input');
+let btnCopy = document.querySelector('.btn-copy');
+shareLink.value = window.location.href
+
+btnCopy.addEventListener('click', copyText);
+
+function copyText(){
+  shareLink.select();
+  shareLink.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(shareLink.value);
+}
+
+
+let partagerBtn = document.querySelector('.partager');
+let shareModal = document.getElementById('share-article')
+let closeShareModal = document.querySelector('.closeShare');
+
+partagerBtn.addEventListener('click', () => {
+  shareModal.classList.add('active');
+})
+
+closeShareModal.addEventListener('click', () => {
+  shareModal.classList.remove('active');
+})

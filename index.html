@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <header></header>
+    <div class="test">
+        <button class="partager">Partager l'article</button>
+    </div>
     <div class="scrollbar-cont">
         <div id="scrollbar"></div>
     </div>
@@ -22,7 +25,7 @@
         </aside>
         <main>
             <h2 id="ajsdfa">Nouvelle offre de restauration au coeur du domaine skiable du Grand Tourmalet</h2>
-            <p>La zone des restaurants et les zones parkings accessibles directement depuis le domaine skiable, c’était le projet ambitieux du Grand Tourmalet. Un projet réussi qui ouvre totalement l’entrée sur le domaine d’activités avec une vaste esplanade enneigée accessible aux piétons comme aux skieurs depuis la Chapelle jusqu’au télésiège Sapins. Le déplacement du tapis débutant va permettre un réel apprentissage progressif pour les débutants grâce à son repositionnement dans la Vallée des Indiens sur une pente plus douce. De plus, le nouveau jardin des neiges pour les tout-petits sera accessible de plain-pied, facilitant ainsi l’accès pour les parents. Ils pourront ensuite emprunter les téléskis déjà existants de Cortail ou du Turon vers la zone Turon, pour trouver un tout nouveau tapis remodelé sur une pente totalement adaptée à la progressivité de l’apprentissage.</p>
+            <p class="framed">La zone des restaurants et les zones parkings accessibles directement depuis le domaine skiable, c’était le projet ambitieux du Grand Tourmalet. Un projet réussi qui ouvre totalement l’entrée sur le domaine d’activités avec une vaste esplanade enneigée accessible aux piétons comme aux skieurs depuis la Chapelle jusqu’au télésiège Sapins. Le déplacement du tapis débutant va permettre un réel apprentissage progressif pour les débutants grâce à son repositionnement dans la Vallée des Indiens sur une pente plus douce. De plus, le nouveau jardin des neiges pour les tout-petits sera accessible de plain-pied, facilitant ainsi l’accès pour les parents. Ils pourront ensuite emprunter les téléskis déjà existants de Cortail ou du Turon vers la zone Turon, pour trouver un tout nouveau tapis remodelé sur une pente totalement adaptée à la progressivité de l’apprentissage.</p>
             <div class="article-img">
                 <img src="/res/1.jpg" alt="">
             </div>
@@ -94,7 +97,7 @@
                 <img src="/res/2.jpg" alt="">
             </div>
             <h3 id="asdlkhadc">Accueille son tout premier hôtel quatre étoiles.</h3>
-            <div id="carousel-container">
+            <div id="publicite-container">
                 <div class="carousel">
                     <!-- first -->
                     <a href="https://google.com" class="card">
@@ -137,6 +140,7 @@
                         </div>
                     </div>
                 </div>
+                <button class="btn-publicite"><a href="">Location de vacances en Bretagne</a></button>
                 <div class="controls">
                     <ion-icon name="chevron-back" class="left"></ion-icon>
                     <ion-icon name="chevron-forward" class="right"></ion-icon>
@@ -174,12 +178,7 @@
                 <img src="/res/4.jpg" alt="">
             </div>
             <div id="video-container">
-                <iframe width="1280" height="720" src="https://www.youtube.com/embed/_gn2AoYLBKI" title="Week-end ski en mars 2023 : les Pyrénées c&#39;est chouette !" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            <h2 id="aasdjsdfaa">Nouvelle offre de restauration au coeur du domaine skiable du Grand Tourmalet</h2>
-            <p>La zone des restaurants et les zones parkings accessibles directement depuis le domaine skiable, c’était le projet ambitieux du Grand Tourmalet. Un projet réussi qui ouvre totalement l’entrée sur le domaine d’activités avec une vaste esplanade enneigée accessible aux piétons comme aux skieurs depuis la Chapelle jusqu’au télésiège Sapins. Le déplacement du tapis débutant va permettre un réel apprentissage progressif pour les débutants grâce à son repositionnement dans la Vallée des Indiens sur une pente plus douce. De plus, le nouveau jardin des neiges pour les tout-petits sera accessible de plain-pied, facilitant ainsi l’accès pour les parents. Ils pourront ensuite emprunter les téléskis déjà existants de Cortail ou du Turon vers la zone Turon, pour trouver un tout nouveau tapis remodelé sur une pente totalement adaptée à la progressivité de l’apprentissage.</p>
-            <div class="article-img">
-                <img src="/res/1.jpg" alt="">
+                <!-- <iframe width="1280" height="720" src="https://www.youtube.com/embed/_gn2AoYLBKI" title="Week-end ski en mars 2023 : les Pyrénées c&#39;est chouette !" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
             </div>
             <ul>
                 <li>asd</li>
@@ -187,27 +186,57 @@
                 <li>asd</li>
             </ul>
         </main>
-    </section>
-
-    <div id="img-modal">
-        <div class="main-img">
-            <img src="" alt="">
+        <div id="img-modal">
+            <div class="main-img">
+                <img src="" alt="">
+            </div>
+            <div class="other-images">
+                <span class="btnLeft"><ion-icon name="chevron-back-sharp"></ion-icon></span>
+                <span class="btnRight"><ion-icon name="chevron-forward-sharp"></ion-icon></span>
+                <div class="modal-img-cont">
+                </div>
+            </div>
+            <span class="close-modal">
+                <ion-icon name="close-sharp"></ion-icon>
+            </span>
         </div>
-        <div class="other-images">
-            <span class="btnLeft"><ion-icon name="chevron-back-sharp"></ion-icon></span>
-            <span class="btnRight"><ion-icon name="chevron-forward-sharp"></ion-icon></span>
-            <div class="modal-img-cont">
+        <div id="popup-container">
+            <div class="popup-content">
+                
+            </div>
+            <button class="close-popup">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+        </div>
+    </section>
+    <div class="test"></div>
+    
+    <div id="share-article">
+        <div class="head">
+            <p>Partager l'article</p>
+            <ion-icon name="close-outline" class="closeShare"></ion-icon>
+        </div>
+        <div class="body">
+            <div class="icons">
+                <ul>
+                    <li><i class="fa-brands fa-facebook-f awsm"></i></li>
+                    <li><a href=""><i class="fa-brands fa-facebook-messenger awsm"></i></a></li>
+                    <li><i class="fa-brands fa-linkedin-in awsm"></i></li>
+                    <li><i class="fa-brands fa-twitter awsm"></i></li>
+                    <li><i class="fa-brands fa-whatsapp awsm"></i></li>
+                    <li><i class="fa-solid fa fa-envelope awsm"></i></li>
+                </ul> 
+            </div>
+            <div class="copy">
+                <input type="text" disabled="disabled">
+                <button class="btn-copy">Copier</button>
             </div>
         </div>
-        <span class="close-modal">
-            <ion-icon name="close-sharp"></ion-icon>
-        </span>
     </div>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
-    <script src="js2.js"></script>
+    <script src="js.js"></script>
 </body>
 </html>
