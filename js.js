@@ -3,7 +3,13 @@ let ul = document.querySelector('#anchor');
 let blog = document.getElementById('#npy-blog');
 const anchor = document.querySelector('#anchor');
 
-
+// sommaire
+// sommaire
+// sommaire
+// sommaire
+// sommaire
+// sommaire
+// sommaire
 Array.prototype.forEach.call(headings, function(heading) {
     let title = heading.textContent;
     let li = document.createElement('li');
@@ -146,6 +152,10 @@ let scrollbar = document.getElementById('scrollbar');
 
 
 // carousel container arrows
+// carousel container arrows
+// carousel container arrows
+// carousel container arrows
+// carousel container arrows
 
 let leftBtn = document.querySelector('.left');
 let rightBtn = document.querySelector('.right');
@@ -166,25 +176,36 @@ leftBtn.addEventListener('click', (event) => {
 
 
 let paragraphs = carousel.querySelectorAll('p, h4');
-
-paragraphs.forEach(p => {
-  let maxHeight = 50; // 2 lines x 16px font size x 1.5 line height
-  let str = p.textContent;
-  let width = p.clientWidth;
-  let height = p.clientHeight;
-  if (height > maxHeight) {
-    while (height > maxHeight) {
-      str = str.slice(0, -1);
-      p.innerHTML = str + '...';
-      height = p.clientHeight;
+window.onload = () => {
+  paragraphs.forEach(p => {
+    let maxHeight = 50; // 2 lines x 16px font size x 1.5 line height
+    let str = p.textContent;
+    let width = p.clientWidth;
+    let height = p.clientHeight;
+    if (height > maxHeight) {
+      while (height > maxHeight) {
+        str = str.slice(0, -1);
+        p.innerHTML = str + '...';
+        height = p.clientHeight;
+      }
     }
-  }
-});
+  });
+};
 
 
 
 
 
+
+// image modal
+// image modal 
+// image modal 
+// image modal 
+// image modal 
+// image modal 
+// image modal 
+// image modal 
+// image modal 
 // image modal 
 let imgContainer = document.getElementById('gallery-container');
 let imgDiv = imgContainer.querySelectorAll('div');
@@ -201,9 +222,6 @@ imgDiv.forEach(div => {
   icon.setAttribute("name","expand-sharp");
   div.append(icon);
 })
-
-
-modal.addEventListener('click', closeModal)
 
 
 let other = document.querySelector('.other-images');
@@ -232,6 +250,7 @@ other.addEventListener('click', (e) => {
       currentImageIndex = index;
       // display image in modal
       modal.querySelector('.main-img img').src = img.src;
+      scrollIntoView();
       // find same image in other-images container and give active class to its parent div
       let otherImages = document.querySelectorAll('.modal-img-cont div img');
       otherImages.forEach((otherImg, otherIndex) => {
@@ -266,8 +285,8 @@ function scrollIntoView() {
   parent.classList.add('active');
   let contWidth = otherImgsDiv.offsetWidth;
   gsap.to('.modal-img-cont', {
-    scrollTo: { x: parent, offsetX: contWidth/2 - 75 },// set the duration to 1 second
-    duration: 1,
+    scrollTo: { x: parent, offsetX: contWidth/2 - parent.offsetWidth / 2},// set the duration to 1 second
+    duration: .3,
   });
 }
 
@@ -308,6 +327,41 @@ btnLeft.addEventListener('click', () => {
   scrollIntoView();
 });
 
+// touch events for mobile devices
+var touchStartX = 0;
+var touchEndX = 0;
+
+modalImage.addEventListener('touchstart', function(event) {
+  if (event.touches.length === 1) { // check for single touch point
+    touchStartX = event.touches[0].clientX;
+  }
+}, false);
+
+modalImage.addEventListener('touchend', function(event) {
+  if (event.changedTouches.length === 1) { // check for single touch point
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+  }
+}, false);
+
+function handleSwipe() {
+  if (touchEndX < touchStartX) {
+    currentImageIndex++;
+    if (currentImageIndex >= modalImages.length) {
+      currentImageIndex = 0;
+    }
+    scrollIntoView();
+  } else if (touchEndX > touchStartX) {
+    currentImageIndex--;
+    if (currentImageIndex < 0) {
+      currentImageIndex = modalImages.length - 1;
+    }
+    scrollIntoView();
+
+  } else {
+    // No swipe
+  }
+}
 
 
 // close modal
@@ -323,6 +377,14 @@ function closeModal(){
 }
 
 
+// popup container
+// popup container
+// popup container
+// popup container
+// popup container
+// popup container
+// popup container
+// popup container
 // popup container
 
 let popUp = document.getElementById('popup-container');
@@ -357,6 +419,14 @@ closePopUp.addEventListener('click', () => {
 
 
 // share article
+// share article
+// share article
+// share article
+// share article
+// share article
+// share article
+// share article
+// share article
 
 let shareLink = document.querySelector('.copy input');
 let btnCopy = document.querySelector('.btn-copy');
@@ -382,3 +452,17 @@ partagerBtn.addEventListener('click', () => {
 closeShareModal.addEventListener('click', () => {
   shareModal.classList.remove('active');
 })
+
+
+
+
+
+
+
+
+document.addEventListener('mousemove', function(e) {
+  var cursor = document.querySelector('.cursor');
+  cursor.style.display = 'block';
+  cursor.style.left = e.pageX + 'px';
+  cursor.style.top = e.pageY + 'px';
+});

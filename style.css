@@ -175,9 +175,6 @@ gallery
     display: block;
     opacity: .7;
 }
-#gallery-container div:hover img {
-    scale: 1.01;
-}
 #gallery-container ion-icon {
     position: absolute;
     top: 50%;
@@ -224,7 +221,7 @@ page scroll progress bar
     top: 100%;
     height: 5px;
     width: 100%;
-    background-color: #002f6c;
+    background-color: #ca4b02;
 }
 
 
@@ -347,7 +344,7 @@ div publicite
 
 /* framed text  */
 #npy-blog main .framed {
-    border: 3px solid skyblue;
+    border: 3px solid #002f6c;
     border-radius: 15px;
     padding: 20px;
 }
@@ -369,12 +366,11 @@ gallery modal
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    gap: 30px;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
-    background-color: #000000be;
-    backdrop-filter: blur(10px);
+    background-color: #161616d8;
+    backdrop-filter: blur(25px);
     position: fixed;
     top: 0;
     left: 0;
@@ -391,21 +387,20 @@ gallery modal
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 75%;
-    width: 75%;
+    flex: 1;
+    width: 85%;
     overflow: hidden;
+    margin-top: 25px;
     /* margin-top: 20px; */
 }
 #img-modal .main-img img{
-    min-width: 100%;
-    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: cover;
 }
 #img-modal .other-images {
-    width: fit-content;
-    max-width: 75%;
-    /* flex: 1; */
-    height: fit-content;
+    width: 100%;
+    height: 110px;
     position: relative;
     display: flex;
     align-items: center;
@@ -413,58 +408,68 @@ gallery modal
 }
 #img-modal .other-images .modal-img-cont {
     display: flex;
-    max-width: 100%;
+    align-items: center;
+    gap: 10px;
+    height: fit-content;
+    border-radius: 5px;
     overflow: hidden;
+    padding-inline: 10px;
+    max-width: 90%;
 }
 #img-modal .other-images .modal-img-cont div {
     display: flex;
     align-items: center;
-    width: 150px;
-    min-width: 150px;
-    height: 150px;
-    border-radius: 5px;
+    min-width: 70px;
+    min-height: 70px;
+    max-width: 70px;
+    max-height: 70px;
+    width: 70px;
+    height: 70px;
     overflow: hidden;
-    border: 3px solid transparent;
+    position: relative;
+    border-radius: 5px;
 }
-#img-modal .other-images .modal-img-cont div.active {
-    border: 3px solid white;
+#img-modal .other-images .modal-img-cont div.active{
+    /* box-shadow: 0px 0px 10px 1px rgb(143, 143, 143); */
+    border: 2px solid white;
+    /* filter: grayscale(1) */
 }
 #img-modal .other-images .modal-img-cont div img{
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
 }
-#img-modal .other-images span {
+#img-modal .main-img span{
     position: absolute;
-    width: 50px;
-    min-height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     cursor: pointer;
 }
-#img-modal .other-images .btnLeft{
-    right: 100%;
+
+#img-modal  .btnLeft{
+    left: 20px;
 }
-#img-modal .other-images .btnRight{
-    left: 100%;
+#img-modal  .btnRight{
+    right: 20px;
 }
 
-#img-modal .other-images span ion-icon {
-    font-size: 64px;
+#img-modal ion-icon {
+    font-size: 56px;
+    --ionicon-stroke-width: 10px;
     color: white;
 }
-
 
 #img-modal .close-modal {
-    all: unset;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
 }
-#img-modal .close-modal ion-icon {
-    font-size: 62px;
-    color: white;
+#img-modal ion-icon:hover {
+    background-color: #858585;
+    border-radius: 50%;
 }
 
 /* 
@@ -524,8 +529,9 @@ share article
     transform: translate(-50%, -50%);
     width: 500px;
     height: fit-content;
-    background-color: #3b4d5a; /* Fallback color */
-    background-image: linear-gradient(to right, #0d2e58 0%, #537895 100%);
+    background: #485563;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 10px;
     display: none;
 }
@@ -563,7 +569,8 @@ color: white;
 #share-article .body .icons ul{
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    gap: 15px;
+    /* justify-content: space-between; */
     width: 100%;
     /* gap: 20px; */
 }
@@ -623,7 +630,8 @@ color: white;
     flex: 1;
     height: 50px;
     padding: 0 5px;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgb(255, 255, 255);
+    color: #002f6c;
     /* color: #002f6c; */
 
 }
@@ -636,7 +644,9 @@ color: white;
     padding: 0 15px;
     cursor: pointer;
 }
-
+#share-article .body .copy button:hover {
+    background-color: #156ee4;
+}
 
 @media only screen and (max-width: 1460px) { 
     #npy-blog aside {
@@ -667,26 +677,10 @@ color: white;
     #npy-blog main #gallery-container div ion-icon{
         font-size: 42px;
     }
-    #img-modal .main-img {
-        padding-top: 0;
-        margin-top: 0;
-    }
     #img-modal .other-images .modal-img-cont div{
         width: 75px;
         min-width: 75px;
         height: 75px;
-    }
-    #img-modal .other-images {
-        max-height: 100px;
-        flex: none;
-    }
-    #img-modal .main-img {
-        width: 100%;
-        height: 100%;
-    }
-    #img-modal .main-img img{
-        min-width: 100%;
-        min-height: 100%;
     }
 }
 
@@ -700,7 +694,11 @@ color: white;
     #npy-blog main .article-img {
         width: 100%;
     }
-
+    #img-modal .main-img {
+        padding-top: 0;
+        margin-top: 0;
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 992px) { 
@@ -712,7 +710,7 @@ color: white;
     }
     #npy-blog main > *,
     #npy-blog main .article-img {
-        width: 70%;
+        width: 85%;
     }
 }
 @media only screen and (max-width: 768px) { 
@@ -748,12 +746,30 @@ color: white;
     #npy-blog main .carousel .card .card-desc {
         padding-inline: 5px;
     }
-    #img-modal .main-img img{
-        min-width: 100%;
-        min-height: auto;
-    }
     #img-modal .other-images {
         margin-bottom: 15px;
+    }
+    #img-modal .main-img span{
+        display: none;
+    }
+    #share-article {
+        width: 90%;
+        /* min-width: 360px; */
+        flex-wrap: wrap;
+    }
+    #share-article .body ul{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    #share-article .body .copy input{
+        min-width: 100px;
+    }
+    #img-modal .main-img img{
+        width: 100%;
+    }
+    #img-modal .other-images .modal-img-cont {
+        overflow-x: scroll;
+        padding-bottom: 10px;
     }
 }
 
@@ -777,3 +793,57 @@ color: white;
 
 
 
+#share-test {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#share-test ul {
+    list-style: none;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 2px rgba(128, 128, 128, 0.274);
+    padding: 10px;
+    font-size: 25px;
+
+}
+#share-test ul li{
+    text-align: center;
+    cursor: pointer;
+    filter: grayscale(1);
+}
+#share-test ul li:hover{
+    filter: grayscale(0);
+}
+
+
+
+
+
+
+
+
+
+.testCursor {
+    position: relative;
+  }
+  
+.testCursor img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    pointer-events: none; /* make sure the cursor doesn't interfere with mouse events */
+    z-index: 9999; /* make sure the cursor appears on top of other elements */
+    display: none; /* hide the cursor by default */
+  }
