@@ -215,15 +215,6 @@ let closeModalBtn = document.querySelector('.close-modal');
 let otherImgsDiv = document.querySelector('.modal-img-cont');
 
 
-
-// add expand icons to each div
-imgDiv.forEach(div => {
-  let icon = document.createElement("ion-icon");
-  icon.setAttribute("name","expand-sharp");
-  div.append(icon);
-})
-
-
 let other = document.querySelector('.other-images');
 let modalImage = document.querySelector('.main-img img')
 
@@ -458,11 +449,11 @@ closeShareModal.addEventListener('click', () => {
 
 
 
-
-
-document.addEventListener('mousemove', function(e) {
-  var cursor = document.querySelector('.cursor');
-  cursor.style.display = 'block';
-  cursor.style.left = e.pageX + 'px';
-  cursor.style.top = e.pageY + 'px';
+imgs.forEach(img => {
+  img.addEventListener('mousemove', function(e){
+    img.style.cursor = 'url(res/search-outline.svg) 12 12, auto';
+  });
 });
+
+
+

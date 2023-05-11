@@ -100,7 +100,7 @@ body.disabled {
 #npy-blog aside ul li:first-child{
     border-left: 0;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     opacity: 1;
 }
 #npy-blog aside a {
@@ -171,29 +171,15 @@ gallery
     cursor: pointer;
     transition: 300ms linear;
 }
-#gallery-container div:hover ion-icon {
-    display: block;
-    opacity: .7;
-}
-#gallery-container ion-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    right: 0;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-    font-size: 72px;
-    --ionicon-stroke-width: 20px;
-    color: white;
-    pointer-events: none;
-    display: none;
-}
 
 #gallery-container div img {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
-    transition: scale 200ms linear;
+    transition: 200ms linear;
+}
+#gallery-container div:hover img {
+    scale: 1.05;
 }
 
 
@@ -254,7 +240,6 @@ div publicite
     transform: translateY(-110%);
     display: flex;
     gap: 20px;
-    font-size: 50px;
 }
 #npy-blog main #publicite-container .btn-publicite{
     all: unset;
@@ -267,16 +252,23 @@ div publicite
 #npy-blog main #publicite-container .btn-publicite a{
     color: white;
 }
-#npy-blog main #publicite-container .controls ion-icon {
-    background-color: #002f6c31;
-    color: white;
-    border-radius: 10px;
-    width: 50px;
+#npy-blog main #publicite-container .controls .awsmArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-text-stroke: 3px white;
+    color: #002f6c;
+    font-size: 35px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 5px #475f7e71;
     cursor: pointer;
 }
-#npy-blog main #publicite-container .controls ion-icon:hover {
-    background-color: #014eb3;
+#npy-blog main #publicite-container .controls .awsmArrow:hover {
+    box-shadow: 0px 4px 7px #30405371;
 }
+
 #npy-blog main .carousel {
     height: 350px;
     display: flex;
@@ -457,8 +449,9 @@ gallery modal
 
 #img-modal ion-icon {
     font-size: 56px;
-    --ionicon-stroke-width: 10px;
+    --ionicon-stroke-width: 7px;
     color: white;
+    border-radius: 50%;
 }
 
 #img-modal .close-modal {
@@ -468,8 +461,9 @@ gallery modal
     cursor: pointer;
 }
 #img-modal ion-icon:hover {
-    background-color: #858585;
-    border-radius: 50%;
+    /* background-color: #b6b6b6; */
+    --ionicon-stroke-width: 20px;
+
 }
 
 /* 
@@ -500,9 +494,9 @@ popup container
     display: block;
 }
 #npy-blog #popup-container .popup-content {
-    width: 80%;
+    width: 100%;
     height: 100%;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(145, 101, 101);
     margin-inline: auto;
 }
 #npy-blog #popup-container .close-popup {
@@ -693,6 +687,7 @@ color: white;
     }
     #npy-blog main .article-img {
         width: 100%;
+        height: 50vh;
     }
     #img-modal .main-img {
         padding-top: 0;
@@ -790,7 +785,18 @@ color: white;
 */
 
 
-
+.partager {
+    all: unset;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 7px 2px grey;
+    cursor: pointer;
+    margin-left: 30px;
+}
+.partager:hover {
+    box-shadow: 0px 0px 10px 3px grey;
+}
 
 
 #share-test {
@@ -821,29 +827,3 @@ color: white;
 
 
 
-
-
-
-
-
-.testCursor {
-    position: relative;
-  }
-  
-.testCursor img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .cursor {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: red;
-    pointer-events: none; /* make sure the cursor doesn't interfere with mouse events */
-    z-index: 9999; /* make sure the cursor appears on top of other elements */
-    display: none; /* hide the cursor by default */
-  }
