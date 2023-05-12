@@ -241,7 +241,6 @@ other.addEventListener('click', (e) => {
       currentImageIndex = index;
       // display image in modal
       modal.querySelector('.main-img img').src = img.src;
-      scrollIntoView();
       // find same image in other-images container and give active class to its parent div
       let otherImages = document.querySelectorAll('.modal-img-cont div img');
       otherImages.forEach((otherImg, otherIndex) => {
@@ -259,6 +258,7 @@ other.addEventListener('click', (e) => {
       // open modal while clicking on image
       modal.classList.add('active');
       document.body.classList.add('disabled');
+      scrollIntoView();
     });
   });
 
