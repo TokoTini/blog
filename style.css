@@ -105,6 +105,11 @@ body.disabled {
 }
 #npy-blog aside a {
     text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -132,7 +137,7 @@ main container
     overflow: hidden;
     width: 95%;
     height: 550px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 #npy-blog main .article-img img {
     min-width: 100%;
@@ -142,7 +147,12 @@ main container
 #npy-blog main ul li {
     margin-left: 20px;
 }
-
+#npy-blog main p a {
+    color: #ec602f;
+}
+#npy-blog main p a:hover {
+    border-bottom: 1px dashed #ec602f;
+}
 /* 
 gallery 
 gallery
@@ -290,11 +300,11 @@ div publicite
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-basis: 70%;
+    flex-basis: 65%;
     height: 100%;
     width: 100%;
     background-color: aliceblue;
-    border-radius: 15px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -306,20 +316,26 @@ div publicite
 #npy-blog main .carousel .card .card-desc{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 5px;
     flex: 1;
     width: 100%;
     padding-inline: 20px;
     overflow: hidden;
 }
+#npy-blog main .carousel .card .card-desc p,
+#npy-blog main .carousel .card .card-desc h4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #npy-blog main .carousel .card .card-desc p{
     font-size: 14px;
-    line-height: 20px;
 }
 #npy-blog main .carousel .card .card-desc h4{
     font-size: 20px;
-    line-height: 25px;
 }
 
 /* video container */
@@ -490,7 +506,7 @@ popup container
 }
 
 #npy-blog #popup-container.active {
-    display: block;
+    /* display: block; */
 }
 #npy-blog #popup-container .popup-content {
     width: 100%;
@@ -902,12 +918,14 @@ color: white;
 #npy-pub:hover .second-page {
     top: 0;
 }
-#npy-pub > h3 {
+#npy-pub > p {
     position: absolute;
     left: 0;
-    bottom: 0;
-    padding: 10px 20px;
-    border-radius: 10px;
+    top: 0;
+    padding: 5px 20px;
+    border-bottom-right-radius: 10px;
+    background-color: #002f6c;
+    color: white;
 }
 
 

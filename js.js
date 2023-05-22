@@ -18,7 +18,7 @@ Array.prototype.forEach.call(headings, function(heading) {
     if(heading.tagName == 'H2'){
       a.style.fontWeight = "700";
     }
-    a.textContent = title.length > 65 ? title.slice(0,65)+ "..." : title;
+    a.textContent = title;
     li.appendChild(a);
     ul.appendChild(li);
 })
@@ -103,18 +103,12 @@ gsap.to('#npy-blog',{
         start: "top top",
         end: "bottom 100%",
         scrub: true,
-        // toggleClass: { className: "active", targets: '#anchor' },
         onEnter: () => {
             anchor.classList.add('active')
         },
         onLeaveBack: () => {
             anchor.classList.remove('active')
         },
-      // markers: {
-      //   startColor: 'red',
-      //   endColor: 'blue',
-      //   fontSize: '1.75rem',
-      // },
     }
 })
 
@@ -131,11 +125,6 @@ gsap.to('#anchor', {
       onLeaveBack: () => {
         anchor.classList.remove('fix-bottom');
       },
-      // markers: {
-      //   startColor: 'red',
-      //   endColor: 'blue',
-      //   fontSize: '1.75rem',
-      // },
     }
   });
 
@@ -173,28 +162,6 @@ leftBtn.addEventListener('click', (event) => {
       behavior: 'smooth'
   })
 })
-
-
-let paragraphs = carousel.querySelectorAll('p, h4');
-window.onload = () => {
-  paragraphs.forEach(p => {
-    let maxHeight = 50; // 2 lines x 16px font size x 1.5 line height
-    let str = p.textContent;
-    let width = p.clientWidth;
-    let height = p.clientHeight;
-    if (height > maxHeight) {
-      while (height > maxHeight) {
-        str = str.slice(0, -1);
-        p.innerHTML = str + '...';
-        height = p.clientHeight;
-      }
-    }
-  });
-};
-
-
-
-
 
 
 // image modal
