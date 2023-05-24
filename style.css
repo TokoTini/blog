@@ -671,7 +671,7 @@ color: white;
         width: 250px;
     }
     #npy-blog main {
-        width: 900px;
+        width: 100%;
     }
     #npy-blog main > * {
         width: 85%;
@@ -699,7 +699,7 @@ color: white;
 
 @media only screen and (max-width: 1200px) { 
     #npy-blog main {
-        width: 700px;
+        width: 100%;
     }
     #npy-blog main > * {
         width: 100%;
@@ -730,6 +730,9 @@ color: white;
 @media only screen and (max-width: 768px) { 
     #npy-blog aside {
         display: none;
+    }
+    #npy-blog main {
+        width: 100%;
     }
     #npy-blog main > * {
         width: 85%;
