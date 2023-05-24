@@ -213,14 +213,14 @@ page scroll progress bar
 
 .container {
     margin: 0 0 !important;
-    max-width: 100vw;
+    max-width: 1900px;
 }
 .paragraph_30_42 .list_cols { 
     margin-inline: auto !important;
 }
 @media screen and (max-width: 93.75em) {
     .container {
-        max-width: 100vw;
+        max-width: 1900px;
         margin: 0 0 !important;
     }
 }
