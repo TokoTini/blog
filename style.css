@@ -24,13 +24,12 @@ body.disabled {
     display: flex;
     height: fit-content;
     padding-bottom: 100px;
-    width: 100% !important;
+    margin-inline: auto;
 }
 #npy-blog aside {
     min-width: 340px;
     width: 340px;
     position: relative;
-    background-color: red;
 }
 #npy-blog main {
     display: flex;
