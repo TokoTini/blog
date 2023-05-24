@@ -30,6 +30,7 @@ body.disabled {
     min-width: 340px;
     width: 340px;
     position: relative;
+    background-color: red;
 }
 #npy-blog main {
     display: flex;
