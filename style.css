@@ -25,6 +25,7 @@ body.disabled {
     height: fit-content;
     padding-bottom: 100px;
     margin-inline: auto;
+    max-width: 100vw;
 }
 #npy-blog aside {
     min-width: 340px;
