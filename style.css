@@ -212,7 +212,7 @@ page scroll progress bar
 
 
 .container {
-    width: 100% !important;
+    width: 100vw !important;
     margin: 0 0 !important;
 }
 @media screen and (max-width: 93.75em) {
