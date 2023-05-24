@@ -48,7 +48,7 @@ body.disabled {
     display: flex;
     flex-direction: column;
     padding-inline: 20px;
-    /* overflow-y: auto; */
+    overflow-y: auto;
     max-height: 95vh;
     margin-top: 55px;
 }
@@ -210,22 +210,6 @@ page scroll progress bar
     width: 100%;
     background-color: #ca4b02;
 }
-
-
-.container {
-    margin: 0 0 !important;
-    max-width: 1900px;
-}
-.paragraph_30_42 .list_cols { 
-    margin-inline: auto !important;
-}
-@media screen and (max-width: 93.75em) {
-    .container {
-        max-width: 1900px;
-        margin: 0 0 !important;
-    }
-}
-
 
 
 /* 
@@ -671,7 +655,7 @@ color: white;
         width: 250px;
     }
     #npy-blog main {
-        width: 100%;
+        width: 900px;
     }
     #npy-blog main > * {
         width: 85%;
@@ -699,7 +683,7 @@ color: white;
 
 @media only screen and (max-width: 1200px) { 
     #npy-blog main {
-        width: 100%;
+        width: 700px;
     }
     #npy-blog main > * {
         width: 100%;
@@ -730,9 +714,6 @@ color: white;
 @media only screen and (max-width: 768px) { 
     #npy-blog aside {
         display: none;
-    }
-    #npy-blog main {
-        width: 100%;
     }
     #npy-blog main > * {
         width: 85%;
