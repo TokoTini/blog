@@ -24,6 +24,7 @@ body.disabled {
     display: flex;
     height: fit-content;
     padding-bottom: 100px;
+    width: 100% !important;
 }
 #npy-blog aside {
     min-width: 340px;
@@ -39,7 +40,9 @@ body.disabled {
     margin: auto;
 }
 #npy-blog aside ul {
-    list-style: none;
+    position: sticky;
+    top: 100px;
+    list-style: none !important;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -47,14 +50,6 @@ body.disabled {
     overflow-y: auto;
     max-height: 95vh;
     margin-top: 55px;
-}
-#npy-blog aside ul.active {
-    position: fixed;
-    margin-top: 0;
-    top: 55px;
-    left: 0;
-    bottom: 0;
-    width: 340px;
 }
 #npy-blog aside ul::-webkit-scrollbar-thumb{
     width: 5px;
@@ -75,11 +70,6 @@ body.disabled {
 #npy-blog aside ul:hover::-webkit-scrollbar-thumb,
 #npy-blog aside ul:hover::-webkit-scrollbar {
     display: block;
-}
-#npy-blog aside ul.fix-bottom {
-    position: absolute;
-    top: auto;
-    bottom: 0;
 }
 #npy-blog aside ul li{
     position: relative;

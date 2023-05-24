@@ -94,41 +94,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
-
-
-gsap.to('#npy-blog',{
-    scrollTrigger: {
-        trigger: 'aside',
-        start: "top top",
-        end: "bottom 100%",
-        scrub: true,
-        onEnter: () => {
-            anchor.classList.add('active')
-        },
-        onLeaveBack: () => {
-            anchor.classList.remove('active')
-        },
-    }
-})
-
-
-gsap.to('#anchor', {
-    scrollTrigger: {
-      scrub: true,
-      trigger: '#npy-blog',
-      start: "bottom 100%",
-      onEnter: () => {
-        let anchor = document.querySelector('#anchor');
-        anchor.classList.add('fix-bottom');
-      },
-      onLeaveBack: () => {
-        anchor.classList.remove('fix-bottom');
-      },
-    }
-  });
-
-
   // page scroll indicator
 let scrollbar = document.getElementById('scrollbar');
 
