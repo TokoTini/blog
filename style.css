@@ -213,6 +213,7 @@ page scroll progress bar
 
 .container {
     margin: 0 0 !important;
+    width: 1920px;
     max-width: 1920px;
 }
 .paragraph_30_42 .list_cols { 
