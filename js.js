@@ -90,7 +90,17 @@ Array.prototype.forEach.call(headings, function(heading){
           anchor.classList.add('active');
           anchor.style.width = container.offsetWidth +"px";
         },
+        onEnterBack: () => {
+          var anchor = document.querySelector('#anchor')
+          let container = anchor.parentNode;
+          console.log(container.offsetWidth)
+          anchor.classList.add('active');
+          anchor.style.width = container.offsetWidth +"px";
+        },
         onLeave: () => {
+          anchor.classList.remove('active');
+        },
+        onLeaveBack: () => {
           anchor.classList.remove('active');
         },
 
