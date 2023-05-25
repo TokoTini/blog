@@ -133,7 +133,7 @@ body.disabled {
 }
 #npy-blog aside ul.active {
     position: fixed;
-    top: 140px;
+    top: 130px;
     padding-bottom: 20px;
 }
 #npy-blog aside ul.absolute {
