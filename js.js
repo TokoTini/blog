@@ -85,15 +85,44 @@ Array.prototype.forEach.call(headings, function(heading){
         toggleClass: { className: "active", targets: '#anchor' },
         onEnter: () => {
           var anchor = document.querySelector('#anchor')
+          let container = anchor.parentNode;
+          console.log(container.offsetWidth)
           anchor.classList.add('active');
+          anchor.style.width = container.offsetWidth +"px";
         },
         onEnterBack: () => {
           anchor.classList.remove('active');
         },
 
+      //  markers: {
+      //   startColor: 'red',
+      //   endColor: 'blue',
+      //   fontSize: '1.75rem',
+      // },
+      }
+    })
+
+    gsap.to('#anchor',{
+      scrollTrigger: {
+        trigger: 'main',
+        start: "bottom bottom",
+        end: "bottom bottom",
+        onEnter: () => {
+          var anchor = document.querySelector('#anchor')
+          let container = anchor.parentNode;
+
+          anchor.classList.add('absolute');
+          console.log('added class absolute')
+          anchor.style.width = container.offsetWidth +"px";
+        },
+        onEnterBack: () => {
+          anchor.classList.remove('absolute');
+          console.log('removed class absolute')
+        },
+
        markers: {
-        startColor: 'red',
-        endColor: 'blue',
+        startColor: 'green',
+        endColor: 'purple',
         fontSize: '1.75rem',
       },
       }

@@ -105,6 +105,7 @@ body.disabled {
 #npy-blog aside {
     min-width: 340px;
     width: 340px;
+    position: relative;
 }
 #npy-blog main {
     display: flex;
@@ -118,7 +119,6 @@ body.disabled {
     list-style: inside !important;
 }
 #npy-blog aside ul {
-    top: 100px;
     list-style: none !important;
     list-style-type: none !important;
     margin: 0;
@@ -133,6 +133,12 @@ body.disabled {
 }
 #npy-blog aside ul.active {
     position: fixed;
+    top: 0;
+}
+#npy-blog aside ul.absolute {
+    position: absolute;
+    top: unset !important;
+    bottom: 0;
 }
 #npy-blog aside ul::-webkit-scrollbar-thumb{
     width: 5px;
