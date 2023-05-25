@@ -118,7 +118,7 @@ body.disabled {
     list-style: inside !important;
 }
 #npy-blog aside ul {
-    position: sticky !important;
+    position: fixed !important;
     top: 100px;
     list-style: none !important;
     list-style-type: none !important;
