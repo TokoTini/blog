@@ -100,10 +100,6 @@ Array.prototype.forEach.call(headings, function(heading){
         onLeave: () => {
           anchor.classList.remove('active');
         },
-        onLeaveBack: () => {
-          anchor.classList.remove('active');
-        },
-
       //  markers: {
       //   startColor: 'red',
       //   endColor: 'blue',
