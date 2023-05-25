@@ -125,6 +125,7 @@ Array.prototype.forEach.call(headings, function(heading){
           anchor.style.width = container.offsetWidth +"px";
         },
         onEnterBack: () => {
+          anchor.classList.add('active');
           anchor.classList.remove('absolute');
         },
 
