@@ -105,6 +105,7 @@ body.disabled {
 #npy-blog aside {
     min-width: 340px;
     width: 340px;
+    height: 100%;
 }
 #npy-blog main {
     display: flex;
