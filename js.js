@@ -82,7 +82,7 @@ Array.prototype.forEach.call(headings, function(heading){
         trigger: 'main',
         start: "0 0",
         end: "bottom bottom",
-        toggleClass: { className: "active", targets: anchor },
+        // toggleClass: { className: "active", targets: anchor },
         onEnter: () => {
           var anchor = document.querySelector('#anchor')
           let container = anchor.parentNode;
