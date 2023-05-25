@@ -19,7 +19,8 @@ drupal
 .container {
     max-width: 100% !important;
     margin: 0px auto;
-    position: relative
+    position: relative;
+    padding-left: 0 !important;
 }
 
 @media screen and (max-width: 93.75em) {
@@ -71,6 +72,10 @@ drupal
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+}
+.paragraph_30_42 .list_cols>li {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 .rte > ul li:before {
     all: unset;
