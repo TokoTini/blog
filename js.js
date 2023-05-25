@@ -82,23 +82,16 @@ Array.prototype.forEach.call(headings, function(heading){
         trigger: 'main',
         start: "0 0",
         end: "bottom bottom",
-        // toggleClass: { className: "active", targets: anchor },
+        toggleClass: { className: "active", targets: anchor },
         onEnter: () => {
-          var anchor = document.querySelector('#anchor')
+          let anchor = document.querySelector('#anchor')
           let container = anchor.parentNode;
-          console.log(container.offsetWidth)
-          anchor.classList.add('active');
           anchor.style.width = container.offsetWidth +"px";
         },
         onEnterBack: () => {
-          var anchor = document.querySelector('#anchor')
+          let anchor = document.querySelector('#anchor')
           let container = anchor.parentNode;
-          console.log(container.offsetWidth)
-          anchor.classList.add('active');
           anchor.style.width = container.offsetWidth +"px";
-        },
-        onLeave: () => {
-          anchor.classList.remove('active');
         },
       //  markers: {
       //   startColor: 'red',
