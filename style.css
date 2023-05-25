@@ -43,6 +43,9 @@ body.disabled {
     position: sticky !important;
     top: 100px;
     list-style: none !important;
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
     height: fit-content;
     display: flex;
     flex-direction: column;
