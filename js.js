@@ -77,6 +77,28 @@ Array.prototype.forEach.call(headings, function(heading){
   });
   
 
+    gsap.to('#anchor',{
+      scrollTrigger: {
+        trigger: 'main',
+        start: "0 0",
+        end: "top 50%",
+        toggleClass: { className: "active", targets: '#anchor' },
+        onEnter: () => {
+          var anchor = document.querySelector('#anchor')
+          anchor.classList.add('active');
+        },
+        onEnterBack: () => {
+          anchor.classList.remove('active');
+        },
+
+       markers: {
+        startColor: 'red',
+        endColor: 'blue',
+        fontSize: '1.75rem',
+      },
+      }
+    })
+
 
 
 // Add click event listener to all anchor tags

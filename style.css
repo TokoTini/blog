@@ -118,7 +118,6 @@ body.disabled {
     list-style: inside !important;
 }
 #npy-blog aside ul {
-    position: fixed !important;
     top: 100px;
     list-style: none !important;
     list-style-type: none !important;
@@ -131,6 +130,9 @@ body.disabled {
     overflow-y: auto;
     max-height: 95vh;
     margin-top: 55px;
+}
+#npy-blog aside ul.active {
+    position: fixed;
 }
 #npy-blog aside ul::-webkit-scrollbar-thumb{
     width: 5px;
