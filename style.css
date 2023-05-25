@@ -115,8 +115,7 @@ body.disabled {
     margin: auto;
 }
 #npy-blog main * ul {
-    list-style: initial;
-    list-style-type: initial;
+    list-style: inside !important;
 }
 #npy-blog aside ul {
     position: sticky !important;
