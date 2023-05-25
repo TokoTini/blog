@@ -120,11 +120,11 @@ Array.prototype.forEach.call(headings, function(heading){
           console.log('removed class absolute')
         },
 
-       markers: {
-        startColor: 'green',
-        endColor: 'purple',
-        fontSize: '1.75rem',
-      },
+      //  markers: {
+      //   startColor: 'green',
+      //   endColor: 'purple',
+      //   fontSize: '1.75rem',
+      // },
       }
     })
 
@@ -439,11 +439,3 @@ imgs.forEach(img => {
 });
 
 
-
-// Get the element you want to measure
-var element = document.getElementById('anchor');
-
-// Calculate the distance from the top of the browser window to the element
-var distanceToTop = element.getBoundingClientRect().top + window.pageYOffset;
-
-console.log('Distance from top of browser window to the element:', distanceToTop);
