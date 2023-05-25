@@ -128,12 +128,13 @@ body.disabled {
     flex-direction: column;
     padding-inline: 20px;
     overflow-y: auto;
-    max-height: 95vh;
+    max-height: 80vh;
     margin-top: 55px;
 }
 #npy-blog aside ul.active {
     position: fixed;
     top: 150px;
+    padding-bottom: 20px;
 }
 #npy-blog aside ul.absolute {
     position: absolute;
@@ -164,7 +165,7 @@ body.disabled {
     position: relative;
     border-left: 2px solid #002f6ca8;
     opacity: .2;
-    padding: 10px;
+    padding: 10px 5px;
     font-size: 14px;
     width: 90%;
     align-self: center;
