@@ -348,48 +348,6 @@ function closeModal(){
   })
 }
 
-
-// popup container
-// popup container
-// popup container
-// popup container
-// popup container
-// popup container
-// popup container
-// popup container
-// popup container
-
-let popUp = document.getElementById('popup-container');
-
-
-gsap.to('#npy-blog',{
-  scrollTrigger: {
-      trigger: '#npy-blog',
-      start: "50% 50%",
-      // end: "55% 50%",
-      scrub: true,
-      onEnter: () => {
-          popUp.classList.add('active')
-      },
-      onLeaveBack: () => {
-          popUp.classList.remove('active')
-      },
-    // markers: {
-    //   startColor: 'red',
-    //   endColor: 'blue',
-    //   fontSize: '1.75rem',
-    // },
-  }
-})
-
-
-let closePopUp = document.querySelector('.close-popup');
-closePopUp.addEventListener('click', () => {
-  popUp.classList.remove('active')
-})
-
-
-
 // share article
 // share article
 // share article
@@ -426,14 +384,5 @@ closeShareModal.addEventListener('click', () => {
 })
 
 
-
-
-
-
-imgs.forEach(img => {
-  img.addEventListener('mousemove', function(e){
-    img.style.cursor = 'url(res/search-outline.svg) 12 12, auto';
-  });
-});
 
 
