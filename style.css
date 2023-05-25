@@ -77,7 +77,7 @@ drupal
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-.rte > ul li:before {
+.rte ul > li:before {
     all: unset;
 }
 
