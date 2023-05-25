@@ -170,7 +170,7 @@ body.disabled {
     width: 90%;
     align-self: center;
     color: #002f6c;
-    margin: 0 !important;
+    margin: 0 3px !important;
 }
 
 #npy-blog aside ul li.active {
