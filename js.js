@@ -81,8 +81,8 @@ Array.prototype.forEach.call(headings, function(heading){
       scrollTrigger: {
         trigger: 'main',
         start: "0 0",
-        end: "top 50%",
-        toggleClass: { className: "active", targets: '#anchor' },
+        end: "bottom bottom",
+        toggleClass: { className: "active", targets: anchor },
         onEnter: () => {
           var anchor = document.querySelector('#anchor')
           let container = anchor.parentNode;
@@ -90,7 +90,7 @@ Array.prototype.forEach.call(headings, function(heading){
           anchor.classList.add('active');
           anchor.style.width = container.offsetWidth +"px";
         },
-        onEnterBack: () => {
+        onLeave: () => {
           anchor.classList.remove('active');
         },
 
@@ -112,12 +112,10 @@ Array.prototype.forEach.call(headings, function(heading){
           let container = anchor.parentNode;
 
           anchor.classList.add('absolute');
-          console.log('added class absolute')
           anchor.style.width = container.offsetWidth +"px";
         },
         onEnterBack: () => {
           anchor.classList.remove('absolute');
-          console.log('removed class absolute')
         },
 
       //  markers: {
